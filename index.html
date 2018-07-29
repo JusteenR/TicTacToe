@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+
+
+
+  <style>
+
+    canvas{
+      width: 35vw;
+      height: 35vw;
+      box-sizing: border-box;
+      display: block;
+      margin: auto;
+      padding: 0;
+      cursor: pointer;
+
+    }
+
+    body{
+      margin:0;
+      padding: 0;
+      height: 100%;
+      display: grid;
+      background-image: url('cloud.jpeg');
+    }
+
+    html {
+      margin:0;
+      padding: 0;
+      height: 100%;
+    }
+
+    h1 {
+      padding: 0;
+      text-align: center;
+      font-size: 50px;
+      position: fixed;
+      margin: 0;
+      width: 100%;
+      font-family: 'Kirang Haerang', cursive;
+    }
+
+    #fixed{
+      position: fixed;
+      width: 100%;
+      bottom: 15px;
+    }
+
+    #button {
+      display: block;
+      margin: auto;
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 25px;
+      font-family: 'Kirang Haerang', cursive;
+      text-align: center;
+      width:90px;
+      background-color: #d7aefb;
+      border: 1px solid black;
+    }
+
+    #button:hover{
+      background-color: #dbb2ff;
+      cursor: pointer;
+    }
+
+    #player1{
+      top:45%;
+    }
+
+    #player2{
+      top:50%;
+    }
+
+    #status {
+      position: fixed;
+      right: 5%;
+      background-color: rgba(255,255,255,0.4);
+      top: 45%;
+      font-size: 2.5vw;
+      font-family: 'Kirang Haerang', cursive;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    #score{
+      position: fixed;
+      font-size: 2.5vw;
+      font-family: 'Kirang Haerang', cursive;
+      left: 5%;
+      top: 45%;
+      background-color: rgba(255,255,255,0.4);
+      border-radius: 10px;
+      padding: 10px;
+
+    }
+
+
+  </style>
+
+<meta charset="utf-8">
+
+<title>Tic Tac Toe</title>
+<meta name="description" content="Simple Tic Tac Toe Game">
+<meta name="author" content="JusteenR">
+
+
+</head>
+
+<body>
+  <h1> Tic Tac Toe </h1>
+
+  <div id="score">
+  <div id="player1">
+    Player1 Score: 0
+  </div>
+  <div id="player2">
+    Player2 Score: 0
+  </div>
+</div>
+
+<div id="status">
+  Player 1's Turn
+</div>
+  <canvas id="outer" width="600px" height="600px">
+</canvas>
+<div id="fixed">
+<button id="button" onclick="tic.reset()" type="reset">Reset</button>
+</div>
+<script src="tictactoe.js"></script>
+
+</body>
+</html>
