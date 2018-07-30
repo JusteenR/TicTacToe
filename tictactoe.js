@@ -1,4 +1,3 @@
-var j = 0;
 let on = 0;
 class Player {
   constructor(){
@@ -12,6 +11,8 @@ class Game {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.turns = 0;
+
+    this.grid = [false, false, false, false, false, false, false, false, false];
 
     this.player1 = new Player();
     this.player2 = new Player();
@@ -53,6 +54,7 @@ class Game {
     for (let x = 0; x < 9; x++){
       this.player1.spots[x] = false;
       this.player2.spots[x] = false;
+      this.grid[x]= false;
     }
     // Switches which player goes first in the next round
     if (this.turns % 2 === 0){
@@ -79,6 +81,10 @@ class Game {
     pos = this.position(e);
 
     if (!this.valid(pos - 1)){ return; }
+
+    // Keep track of how filled the grid is
+    this.grid[pos - 1] = true;
+
     if (this.turns % 2 === 0){
       this.p1Draw(pos);
       this.player1.spots[pos - 1] = true;
@@ -91,7 +97,21 @@ class Game {
     if (this.check(this.player1, 1) === true || this.check(this.player2, 2) === true){
       on = 1;
     };
+
+    if (this.catGame() === true){
+      document.getElementById('status').innerHTML = "Cat Scratch!";
+    }
     this.turns++;
+  }
+
+  catGame(){
+    if (this.grid[0] && this.grid[1] && this.grid[2] && this.grid[3] && this.grid[4]
+        && this.grid[5] && this.grid[6] && this.grid[7] && this.grid[8]){
+          return true;
+        }
+    else {
+      return false;
+    }
   }
 
   check(p, n){
